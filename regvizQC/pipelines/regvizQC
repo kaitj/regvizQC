@@ -93,6 +93,7 @@ def main():
     regImg.inputs.fixed_img = fixed_img
     regImg.inputs.moving_img = moving_img
     regImg.inputs.mask_img = mask
+    regImg.inputs.out_dir = out_dir
     regImg.inputs.cuts = cuts
     regImg.run()
 

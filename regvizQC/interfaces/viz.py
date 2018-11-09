@@ -13,6 +13,7 @@ class RegistrationImageInputSpec(BaseInterfaceInputSpec):
     fixed_img = File(desc='Fixed image')
     moving_img = File(desc='Moving image')
     mask_img = File(desc='Mask of interest')
+    out_dir = Directory(desc='output directory')
     cuts = traits.Int(default_value=7)
 
 class RegistrationImageOutputSpec(TraitedSpec):
@@ -26,6 +27,7 @@ class RegistrationInterface(BaseInterface):
         fixed_img = load_img(self.inputs.fixed_img)
         moving_img = load_img(self.inputs.moving_img)
         mask = load_img(self.inputs.mask_img)
+        out_dir = os.path.realpath(self.inputs.out_dir)
         cuts = cuts_from_bbox(mask, self.inputs.cuts)
 
         _, fname, _ = split_filename(self.inputs.moving_img)
@@ -36,7 +38,7 @@ class RegistrationInterface(BaseInterface):
                      plot_registration(moving_img, 'moving-image',
                                        estimate_brightness=True,
                                        cuts=cuts, label='moving'),
-                     out_file=(fname + '_vizQC.svg'))
+                     out_file=os.path.join(out_dir, (fname + '_vizQC.svg')))
 
         return runtime
 
@@ -44,5 +46,6 @@ class RegistrationInterface(BaseInterface):
         outputs = self._outputs().get()
 
         _, fname, _ = split_filename(self.inputs.moving_img)
-        outputs["out_svg"] = (fname + '_vizQC.svg')
+        outputs["out_svg"] = os.path.join(os.path.realpath(self.inputs.out_dir),
+                                (fname + '_vizQC.svg'))
         return outputs
