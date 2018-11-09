@@ -44,5 +44,5 @@ class RegistrationInterface(BaseInterface):
         outputs = self._outputs().get()
 
         _, fname, _ = split_filename(self.inputs.moving_img)
-        outputs["registration_svg"] = (fname + '_vizQC.svg')
+        outputs["out_svg"] = (fname + '_vizQC.svg')
         return outputs
