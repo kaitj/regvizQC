@@ -79,7 +79,7 @@ def main():
 
     config.update_config({'logging': {'log_directory': work_dir,
                                      'log_to_file': True,
-                                     },
+                                    },
                         'execution': {'crashdump_dir': crash_dir,
                                       'crashfile_format': 'txt'
                                       }})
@@ -89,7 +89,7 @@ def main():
     regImg.base_dir = work_dir
     regImg.inputs.fixed_img = fixed_img
     regImg.inputs.moving_img = moving_img
-    regImg.inputs.mask = mask
+    regImg.inputs.mask_img = mask
     regImg.inputs.cuts = cuts
     regImg.output_dir = out_dir
     regImg.run()
