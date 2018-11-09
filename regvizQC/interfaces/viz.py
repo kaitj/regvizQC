@@ -1,12 +1,10 @@
 from nipype.interfaces.base import (BaseInterface, BaseInterfaceInputSpec,
-                                    traits, File, TraitedSpec)
+                                    traits, File, TraitedSpec, Directory)
 from nipype.utils.filemanip import split_filename
 from niworkflows.viz.utils import (cuts_from_bbox, compose_view,
                                    plot_registration)
-from nilearn.image import threshold_img, load_img
+from nilearn.image import load_img
 
-import nibabel as nb
-import numpy as np
 import os
 
 class RegistrationImageInputSpec(BaseInterfaceInputSpec):
