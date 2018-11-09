@@ -52,9 +52,9 @@ def main():
     args = get_parser().parse_args()
 
     # Required inputs
-    fixed_img = op.relpath(args.fixed_img)
-    moving_img = op.relpath(args.moving_img)
-    mask = op.relpath(args.mask)
+    fixed_img = op.realpath(args.fixed_img)
+    moving_img = op.realpath(args.moving_img)
+    mask = op.realpath(args.mask)
 
     # Optional inputs
     cuts = int(args.cuts)
