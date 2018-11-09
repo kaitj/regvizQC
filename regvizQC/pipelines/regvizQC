@@ -94,7 +94,6 @@ def main():
     regImg.inputs.moving_img = moving_img
     regImg.inputs.mask_img = mask
     regImg.inputs.cuts = cuts
-    regImg.output_dir = out_dir
     regImg.run()
 
 
