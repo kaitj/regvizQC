@@ -1,5 +1,5 @@
 # regvizQC
-#### _This package is not activaely maintained_
+#### _This package is not actively maintained_
 
 regvizQC, a visual assessment tool for registration (based on fmriprep's QC)
 
